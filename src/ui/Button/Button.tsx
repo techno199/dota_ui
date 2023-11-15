@@ -1,9 +1,9 @@
 import React from 'react';
-import {Button as MuiButton} from '@mui/material';
+import {Button as MuiButton, ButtonProps as MuiButtonProps} from '@mui/material';
 import clsx from "clsx";
 
-export type ButtonProps = {
-  color: 'green'
+export type ButtonProps = Omit<MuiButtonProps, 'color'> & {
+  color?: 'green'
 }
 
 const Button = (props: ButtonProps) => {

@@ -8,7 +8,7 @@ import Button from "@/ui/Button/Button";
 
 const Page = observer(() => {
   const {gameLaunched, launchSequenceLoaded, launchSequenceFinished} = appState;
-  const introVideoRef = useRef(null);
+  const introVideoRef = useRef(null as any);
   const logoVisible = gameLaunched && !launchSequenceLoaded;
   const introVisible = gameLaunched && launchSequenceLoaded && !launchSequenceFinished;
 
@@ -22,7 +22,7 @@ const Page = observer(() => {
   }, [gameLaunched]);
 
   useEffect(() => {
-    if (introVisible) {
+    if (introVisible && introVideoRef.current) {
       introVideoRef.current.volume = 0.1;
     }
   }, [introVisible])
@@ -59,7 +59,7 @@ const Page = observer(() => {
             exit={{opacity: 0, scale: .98}}
             className={'grid place-items-center w-full grow bg-black'}
           >
-            <Image src={'/dota-logo.png'} width={600} height={600} objectFit={'cover'} />
+            <Image alt={''} src={'/dota-logo.png'} width={600} height={600} objectFit={'cover'} />
           </motion.div>
         )}
         {introVisible && (
