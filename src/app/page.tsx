@@ -5,6 +5,7 @@ import Image from "next/image";
 import {useEffect, useRef} from "react";
 import {AnimatePresence, motion} from "framer-motion";
 import Button from "@/ui/Button/Button";
+import {redirect} from "next/navigation";
 
 const Page = observer(() => {
   const {gameLaunched, launchSequenceLoaded, launchSequenceFinished} = appState;
@@ -17,7 +18,7 @@ const Page = observer(() => {
     if (gameLaunched) {
       setTimeout(() => {
         appState.launchSequenceLoaded = true;
-      }, 3500)
+      }, 500)
     }
   }, [gameLaunched]);
 
@@ -35,8 +36,13 @@ const Page = observer(() => {
     appState.launchSequenceFinished = true;
   }
 
+  if (launchSequenceFinished) {
+    return redirect('/main-menu')
+  }
+
   return (
-    <main className="flex min-h-screen flex-col items-center bg-steam-primary">
+    <div className={'flex grow w-full h-full'}>
+      {/* Play */}
       {!gameLaunched && (
         <div className={'grid place-items-center w-full grow'}>
           <Button
@@ -51,6 +57,7 @@ const Page = observer(() => {
       )}
 
       <AnimatePresence mode={'popLayout'}>
+        {/* Logo */}
         {logoVisible && (
           <motion.div
             key={'logo'}
@@ -59,9 +66,15 @@ const Page = observer(() => {
             exit={{opacity: 0, scale: .98}}
             className={'grid place-items-center w-full grow bg-black'}
           >
-            <Image alt={''} src={'/dota-logo.png'} width={600} height={600} objectFit={'cover'} />
+            <Image
+              alt={''}
+              src={'/dota-logo.png'}
+              width={600}
+              height={600}
+            />
           </motion.div>
         )}
+        {/* Intro */}
         {introVisible && (
           <motion.div
             initial={{opacity: 0, scale: 1}}
@@ -70,9 +83,9 @@ const Page = observer(() => {
             className={'flex w-full grow'}
           >
             <video
+              autoPlay
               key={'intro'}
               ref={introVideoRef}
-              autoPlay
               className={'w-full grow object-cover'}
               onEnded={handleIntroEnded}
               onClick={handleIntroEnded}
@@ -82,8 +95,7 @@ const Page = observer(() => {
           </motion.div>
         )}
       </AnimatePresence>
-
-    </main>
+    </div>
   )
 })
 

@@ -5,6 +5,7 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import {StyledEngineProvider} from "@mui/material";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,8 +20,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <StyledEngineProvider injectFirst>
+      <html lang="en">
+        <body className={inter.className}>
+          <main className="flex min-h-screen flex-col items-center bg-steam-primary text-white font-trajan">
+            {children}
+          </main>
+        </body>
+      </html>
+    </StyledEngineProvider>
   )
 }

@@ -9,6 +9,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'trajan': ['Trajan']
+      },
       colors: {
         'steam-primary': 'rgb(23 29 37)',
         'col-white': 'rgb(238 238 238)',
