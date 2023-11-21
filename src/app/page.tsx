@@ -133,7 +133,7 @@ const preloadImages = (sources) => {
       img.onload = () => {
         loadedCount++;
         if (loadedCount === sources.length) {
-          return resolve();
+          return resolve(true);
         }
       }
     }
