@@ -16,7 +16,7 @@ const config: Config = {
         'steam-primary': 'rgb(23 29 37)',
         'col-white': 'rgb(238 238 238)',
         'col-grey': {
-          DEFAULT: 'rgb(54 126 63)',
+          DEFAULT: 'rgb(15 13 18)',
           dark: 'rgb(60 60 60)',
           light: 'rgb(87 104 104)',
           lighter: 'rgb(204 204 204)',

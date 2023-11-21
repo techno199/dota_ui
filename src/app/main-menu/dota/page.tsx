@@ -1,10 +1,20 @@
-import React from 'react';
+'use client'
+import React, {useEffect} from 'react';
 import DotaSidebar from "@/app/main-menu/dota/ui/dota_sidebar";
 import MainMenuMotion from "@/app/main-menu/ui/main-menu_motion";
+import {mediaCenter} from "@/../models/MediaCenter/MediaCenter";
+import {Loop} from "@/../models/Loop/Loop";
+import {AppConfig} from "@/../app.config";
 
 export type PageProps = {}
 
 const Page = (props: PageProps) => {
+  useEffect(() => {
+    mediaCenter.addLoop(
+      new Loop('bg', AppConfig.mainMenuMusic)
+    )
+  }, [])
+
   return (
     <div className={'flex '}>
       <MainMenuMotion
@@ -12,7 +22,7 @@ const Page = (props: PageProps) => {
         animate={{opacity: 1}}
         className={'grow'}
       >
-        Content
+
       </MainMenuMotion>
 
       <MainMenuMotion

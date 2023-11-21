@@ -11,7 +11,7 @@ const MainMenuNavbar = (props: MainMenuNavbarProps) => {
     <MainMenuMotion
       initial={{y: -15, opacity: 0}}
       animate={{y: 0, opacity: 1}}
-      className={'flex px-12'}
+      className={'flex px-12 bg-col-grey'}
     >
       <MainMenuNavbarButton>
         Heroes

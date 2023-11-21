@@ -6,6 +6,8 @@ import {useEffect, useRef} from "react";
 import {AnimatePresence, motion} from "framer-motion";
 import Button from "@/ui/Button/Button";
 import {redirect} from "next/navigation";
+import {AppConfig} from "@/../app.config";
+import Lmb from '/public/icons/lmb.svg';
 
 const Page = observer(() => {
   const {gameLaunched, launchSequenceLoaded, launchSequenceFinished} = appState;
@@ -18,7 +20,7 @@ const Page = observer(() => {
     if (gameLaunched) {
       setTimeout(() => {
         appState.launchSequenceLoaded = true;
-      }, 2500)
+      }, AppConfig.logoTimeoutMs);
     }
   }, [gameLaunched]);
 
@@ -92,6 +94,17 @@ const Page = observer(() => {
             >
               <source src={'/dota-intro.mp4'} type="video/mp4"/>
             </video>
+
+            {/* Press left mouse button to skip intro */}
+            <motion.div
+              initial={{opacity: 0}}
+              animate={{opacity: 1}}
+              transition={{delay: 1, duration: .3}}
+              className={'absolute right-20 bottom-20 flex items-center gap-4'}
+            >
+              <Lmb className={'w-6 h-auto'} />
+              SKIP
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

@@ -8,11 +8,13 @@ export class MediaCenter {
     makeAutoObservable(this);
   }
 
-  addLoop(name: string, audioRefs: string[]) {
-
+  addLoop(loop: Loop) {
+    this.loops.push(loop);
   }
 
   getLoopByName(name: string) {
     return this.loops.find(l => l.name === name);
   }
 }
+
+export const mediaCenter = new MediaCenter();
