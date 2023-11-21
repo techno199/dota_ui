@@ -1,5 +1,5 @@
 import {makeAutoObservable} from "mobx";
-import {Loop} from "src/models/Loop/Loop";
+import {Loop} from "@/models/Loop/Loop";
 
 export class MediaCenter {
   loops: Loop[] = [];
