@@ -2,15 +2,15 @@
 import React from 'react';
 import MainMenuNavbarButton from "@/app/main-menu/ui/main-menu_navbar-button";
 import {motion} from "framer-motion";
+import MainMenuMotion from "@/app/main-menu/ui/main-menu_motion";
 
 export type MainMenuNavbarProps = {}
 
 const MainMenuNavbar = (props: MainMenuNavbarProps) => {
   return (
-    <motion.div
-      initial={{y: -10, opacity: 0}}
+    <MainMenuMotion
+      initial={{y: -15, opacity: 0}}
       animate={{y: 0, opacity: 1}}
-      transition={{type: 'tween', duration: .5}}
       className={'flex px-12'}
     >
       <MainMenuNavbarButton>
@@ -28,7 +28,7 @@ const MainMenuNavbar = (props: MainMenuNavbarProps) => {
       <MainMenuNavbarButton>
         Arcade
       </MainMenuNavbarButton>
-    </motion.div>
+    </MainMenuMotion>
   );
 };
 
