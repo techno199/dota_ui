@@ -6,6 +6,7 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import {StyledEngineProvider} from "@mui/material";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ['latin'] })
 

@@ -8,6 +8,7 @@ import Button from "@/ui/Button/Button";
 import {redirect} from "next/navigation";
 import {AppConfig} from "@/../app.config";
 import Lmb from '/public/icons/lmb.svg';
+import Logo from '/public/dota.svg'
 
 const Page = observer(() => {
   const {gameLaunched, launchSequenceLoaded, launchSequenceFinished} = appState;
@@ -68,12 +69,7 @@ const Page = observer(() => {
             exit={{opacity: 0, scale: .98}}
             className={'grid place-items-center w-full grow bg-black'}
           >
-            <Image
-              alt={''}
-              src={'/dota-logo.png'}
-              width={600}
-              height={600}
-            />
+            <Logo className={'scale-[6] text-dota'} />
           </motion.div>
         )}
         {/* Intro */}

@@ -13,11 +13,12 @@ const config: Config = {
         'trajan': ['Trajan']
       },
       colors: {
+        'dota': 'rgb(255 101 47)',
         'steam-primary': 'rgb(23 29 37)',
         'col-white': 'rgb(238 238 238)',
         'col-grey': {
-          DEFAULT: 'rgb(15 13 18)',
-          dark: 'rgb(60 60 60)',
+          DEFAULT: 'rgb(69 75 86)',
+          dark: 'rgb(15 13 18)',
           light: 'rgb(87 104 104)',
           lighter: 'rgb(204 204 204)',
         },
