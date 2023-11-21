@@ -1,6 +1,6 @@
 import React from 'react';
 import DotaSidebar from "@/app/main-menu/dota/ui/dota_sidebar";
-import MainMenuMotion from "src/app/main-menu/ui/main-menu_motion";
+import MainMenuMotion from "@/app/main-menu/ui/main-menu_motion";
 
 export type PageProps = {}
 

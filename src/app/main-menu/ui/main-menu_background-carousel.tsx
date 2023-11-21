@@ -2,7 +2,7 @@
 import React, {useEffect, useState} from 'react';
 import {AnimatePresence, motion} from "framer-motion";
 import Image from "next/image";
-import {AppConfig} from "app.config";
+import {AppConfig} from "@/../app.config";
 
 export type MainMenuBackgroundCarouselProps = {}
 
@@ -43,7 +43,7 @@ const MainMenuBackgroundCarousel = (props: MainMenuBackgroundCarouselProps) => {
 
 export default MainMenuBackgroundCarousel;
 
-const SlideMotion = ({value, index, ...props}) => value === index && (
+const SlideMotion = ({value, index, ...props}: any) => value === index && (
   <motion.div
     initial={{opacity: 0}}
     animate={{opacity: 1}}
