@@ -18,7 +18,7 @@ const Page = observer(() => {
     if (gameLaunched) {
       setTimeout(() => {
         appState.launchSequenceLoaded = true;
-      }, 500)
+      }, 2500)
     }
   }, [gameLaunched]);
 
