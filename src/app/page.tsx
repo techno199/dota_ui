@@ -1,14 +1,14 @@
 'use client'
 import {appState} from "@/app/root.store";
 import {observer} from "mobx-react";
-import Image from "next/image";
+import NextImage from "next/image";
 import {useEffect, useRef} from "react";
 import {AnimatePresence, motion} from "framer-motion";
 import Button from "@/ui/Button/Button";
 import {redirect} from "next/navigation";
 import {AppConfig} from "@/../app.config";
 import Lmb from '/public/icons/lmb.svg';
-import Logo from '/public/dota.svg'
+import Logo from '/public/dota.svg';
 
 const Page = observer(() => {
   const {gameLaunched, launchSequenceLoaded, launchSequenceFinished} = appState;
@@ -16,20 +16,26 @@ const Page = observer(() => {
   const logoVisible = gameLaunched && !launchSequenceLoaded;
   const introVisible = gameLaunched && launchSequenceLoaded && !launchSequenceFinished;
 
-  // Display logo while fake resources load
+  // Display logo while resources load
   useEffect(() => {
     if (gameLaunched) {
-      setTimeout(() => {
-        appState.launchSequenceLoaded = true;
-      }, AppConfig.logoTimeoutMs);
+      preloadImages(preloadImageSrc)
+        .then(() => {
+          appState.launchSequenceLoaded = true;
+        });
+
+      // setTimeout(() => {
+      //   appState.launchSequenceLoaded = true;
+      // }, AppConfig.logoTimeoutMs);
     }
   }, [gameLaunched]);
 
+  // Set video volume when it's available
   useEffect(() => {
     if (introVisible && introVideoRef.current) {
       introVideoRef.current.volume = 0.1;
     }
-  }, [introVisible])
+  }, [introVisible]);
 
   const handleGameLaunch = () => {
     appState.gameLaunched = true;
@@ -109,3 +115,27 @@ const Page = observer(() => {
 })
 
 export default Page;
+
+const preloadImageSrc = [
+  '/menu-backgrounds/bg1.jpeg',
+  '/menu-backgrounds/bg2.jpeg',
+  '/menu-backgrounds/bg3.jpeg',
+  '/menu-backgrounds/bg4.jpeg',
+]
+
+const preloadImages = (sources) => {
+  return new Promise((resolve, reject) => {
+    let loadedCount = 0;
+
+    for (let source of sources) {
+      const img = new Image();
+      img.src = source;
+      img.onload = () => {
+        loadedCount++;
+        if (loadedCount === sources.length) {
+          return resolve();
+        }
+      }
+    }
+  });
+}

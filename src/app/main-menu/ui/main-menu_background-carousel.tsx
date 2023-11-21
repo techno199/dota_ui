@@ -25,16 +25,16 @@ const MainMenuBackgroundCarousel = (props: MainMenuBackgroundCarouselProps) => {
     <div className={`absolute inset-0 blur`}>
       <AnimatePresence>
         <SlideMotion key={0} value={0} index={currentSlideIndex}>
-          <Image priority src={'/menu-backgrounds/bg1.jpeg'} alt={''} fill/>
+          <Image src={'/menu-backgrounds/bg1.jpeg'} alt={''} fill/>
         </SlideMotion>
         <SlideMotion key={1} value={1} index={currentSlideIndex}>
-          <Image priority src={'/menu-backgrounds/bg2.jpeg'} alt={''} fill/>
+          <Image src={'/menu-backgrounds/bg2.jpeg'} alt={''} fill/>
         </SlideMotion>
         <SlideMotion key={2} value={2} index={currentSlideIndex}>
-          <Image priority src={'/menu-backgrounds/bg3.jpeg'} alt={''} fill/>
+          <Image src={'/menu-backgrounds/bg3.jpeg'} alt={''} fill/>
         </SlideMotion>
         <SlideMotion key={3} value={3} index={currentSlideIndex}>
-          <Image priority src={'/menu-backgrounds/bg4.jpeg'} alt={''} fill />
+          <Image src={'/menu-backgrounds/bg4.jpeg'} alt={''} fill />
         </SlideMotion>
       </AnimatePresence>
     </div>
