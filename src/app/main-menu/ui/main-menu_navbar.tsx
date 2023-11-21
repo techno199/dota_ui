@@ -1,9 +1,8 @@
 'use client'
 import React from 'react';
 import MainMenuNavbarButton from "@/app/main-menu/ui/main-menu_navbar-button";
-import {motion} from "framer-motion";
 import MainMenuMotion from "@/app/main-menu/ui/main-menu_motion";
-import Logo from '/public/dota.svg';
+import MainMenuLogo from '@/app/main-menu/ui/main-manu_logo';
 import Cog from '/public/icons/cog.svg';
 import Arrow from '/public/icons/arrow.svg';
 
@@ -28,13 +27,7 @@ const MainMenuNavbar = (props: MainMenuNavbarProps) => {
         </div>
       </div>
 
-      <div className={'relative'}>
-        <Logo
-          className={'w-20 text-dota'}
-        />
-
-        <div className={'absolute top-1/2 left-1/2 rounded-full shadow-[-1px_0px_77px_90px_rgba(219,117,21,0.2)]'} />
-      </div>
+      <MainMenuLogo />
 
       <div className={'flex font-medium'}>
         <MainMenuNavbarButton>
