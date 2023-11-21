@@ -30,7 +30,7 @@ const MainMenuNavbar = (props: MainMenuNavbarProps) => {
 
       <div className={'relative'}>
         <Logo
-          className={'scale-[1.6] text-dota'}
+          className={'w-20 text-dota'}
         />
 
         <div className={'absolute top-1/2 left-1/2 rounded-full shadow-[-1px_0px_77px_90px_rgba(219,117,21,0.2)]'} />

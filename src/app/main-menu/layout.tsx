@@ -1,3 +1,4 @@
+'use client'
 import React, {ReactNode} from 'react';
 import DotaSidebar from "@/app/main-menu/dota/ui/dota_sidebar";
 import MainMenuNavbar from "@/app/main-menu/ui/main-menu_navbar";

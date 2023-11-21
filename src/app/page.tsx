@@ -2,7 +2,7 @@
 import {appState} from "@/app/root.store";
 import {observer} from "mobx-react";
 import NextImage from "next/image";
-import {useEffect, useRef} from "react";
+import {useEffect, useRef, useState} from "react";
 import {AnimatePresence, motion} from "framer-motion";
 import Button from "@/ui/Button/Button";
 import {redirect} from "next/navigation";
@@ -11,6 +11,12 @@ import Lmb from '/public/icons/lmb.svg';
 import Logo from '/public/dota.svg';
 
 const Page = observer(() => {
+  const [state, setState] = useState({
+    // Minimal time of visible logo to prevent content flash
+    minLoadingTimePassed: false,
+    resourcesLoaded: false
+  });
+  const {resourcesLoaded, minLoadingTimePassed} = state;
   const {gameLaunched, launchSequenceLoaded, launchSequenceFinished} = appState;
   const introVideoRef = useRef(null as any);
   const logoVisible = gameLaunched && !launchSequenceLoaded;
@@ -19,16 +25,24 @@ const Page = observer(() => {
   // Display logo while resources load
   useEffect(() => {
     if (gameLaunched) {
-      preloadImages(preloadImageSrc)
+      preloadResources(preloadImageSrc)
         .then(() => {
-          appState.launchSequenceLoaded = true;
+          setState(p => ({...p, resourcesLoaded: true}));
+          // appState.launchSequenceLoaded = true;
         });
 
-      // setTimeout(() => {
-      //   appState.launchSequenceLoaded = true;
-      // }, AppConfig.logoTimeoutMs);
+      setTimeout(() => {
+        setState(p => ({...p, minLoadingTimePassed: true}));
+      }, AppConfig.logoTimeoutMs);
     }
   }, [gameLaunched]);
+
+  // Check if both resources loaded and min time constraint fulfilled
+  useEffect(() => {
+    if (minLoadingTimePassed && resourcesLoaded) {
+      appState.launchSequenceLoaded = true;
+    }
+  }, [minLoadingTimePassed, resourcesLoaded])
 
   // Set video volume when it's available
   useEffect(() => {
@@ -75,7 +89,12 @@ const Page = observer(() => {
             exit={{opacity: 0, scale: .98}}
             className={'grid place-items-center w-full grow bg-black'}
           >
-            <Logo className={'scale-[6] text-dota'} />
+            <div className={'flex flex-col items-center'}>
+              <div className={'w-[400px] h-[400px]'}>
+                <Logo className={'w-full text-dota'} />
+              </div>
+              <span className={'relative left-0 '}>Loading assets...</span>
+            </div>
           </motion.div>
         )}
         {/* Intro */}
@@ -121,16 +140,39 @@ const preloadImageSrc = [
   '/menu-backgrounds/bg2.jpeg',
   '/menu-backgrounds/bg3.jpeg',
   '/menu-backgrounds/bg4.jpeg',
+  '/dota-intro.mp4',
+  '/music/1.mp3',
+  '/music/2.mp3'
 ]
 
-const preloadImages = (sources) => {
+const preloadResources = (sources) => {
   return new Promise((resolve, reject) => {
     let loadedCount = 0;
 
     for (let source of sources) {
-      const img = new Image();
-      img.src = source;
-      img.onload = () => {
+      const format = source.split('.')[1];
+      let elemName;
+      let event;
+
+      if (['jpeg'].includes(format)) {
+        elemName = 'img';
+        event = 'onload';
+      }
+
+
+      if (['mp4'].includes(format)) {
+        elemName = 'video';
+        event = 'oncanplay';
+      }
+
+      if (['mp3'].includes(format)) {
+        elemName = 'audio';
+        event = 'oncanplay';
+      }
+
+      const elem = document.createElement(elemName);
+      elem.src = source;
+      elem[event] = () => {
         loadedCount++;
         if (loadedCount === sources.length) {
           return resolve(true);

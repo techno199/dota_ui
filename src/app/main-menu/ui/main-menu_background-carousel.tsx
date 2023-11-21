@@ -24,18 +24,10 @@ const MainMenuBackgroundCarousel = (props: MainMenuBackgroundCarouselProps) => {
   return (
     <div className={`absolute inset-0 blur`}>
       <AnimatePresence>
-        <SlideMotion key={0} value={0} index={currentSlideIndex}>
-          <Image src={'/menu-backgrounds/bg1.jpeg'} alt={''} fill/>
-        </SlideMotion>
-        <SlideMotion key={1} value={1} index={currentSlideIndex}>
-          <Image src={'/menu-backgrounds/bg2.jpeg'} alt={''} fill/>
-        </SlideMotion>
-        <SlideMotion key={2} value={2} index={currentSlideIndex}>
-          <Image src={'/menu-backgrounds/bg3.jpeg'} alt={''} fill/>
-        </SlideMotion>
-        <SlideMotion key={3} value={3} index={currentSlideIndex}>
-          <Image src={'/menu-backgrounds/bg4.jpeg'} alt={''} fill />
-        </SlideMotion>
+        <SlideMotion key={0} value={0} index={currentSlideIndex} src={'/menu-backgrounds/bg1.jpeg'} />
+        <SlideMotion key={1} value={1} index={currentSlideIndex} src={'/menu-backgrounds/bg2.jpeg'} />
+        <SlideMotion key={2} value={2} index={currentSlideIndex} src={'/menu-backgrounds/bg3.jpeg'} />
+        <SlideMotion key={3} value={3} index={currentSlideIndex} src={'/menu-backgrounds/bg4.jpeg'} />
       </AnimatePresence>
     </div>
   );
@@ -43,12 +35,14 @@ const MainMenuBackgroundCarousel = (props: MainMenuBackgroundCarouselProps) => {
 
 export default MainMenuBackgroundCarousel;
 
-const SlideMotion = ({value, index, ...props}: any) => value === index && (
+const SlideMotion = ({value, index, src, ...props}: any) => value === index && (
   <motion.div
     initial={{opacity: 0}}
     animate={{opacity: 1}}
     exit={{opacity: 0}}
     className={'absolute inset-0'}
     {...props}
-  />
+  >
+    <img src={src} alt={''} className={'w-full h-full object-cover'} />
+  </motion.div>
 )

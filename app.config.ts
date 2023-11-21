@@ -1,7 +1,7 @@
 import {Loop} from "@/./models/Loop/Loop";
 
 export const AppConfig = {
-  logoTimeoutMs: 1000,
+  logoTimeoutMs: 1500,
   // Time in milliseconds between slide transitions
   mainMenuSliderTransitionTimeoutMs: 15000,
   mainMenuMusic: [
