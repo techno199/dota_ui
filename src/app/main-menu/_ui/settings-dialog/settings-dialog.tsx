@@ -7,7 +7,7 @@ import {observer} from "mobx-react";
 export type SettingsDialogProps = DialogProps;
 
 const SettingsDialog = observer((props: SettingsDialogProps) => {
-  const { classes, ...rest } = props;
+  const { classes, open, ...rest } = props;
 
   return (
     <Dialog
