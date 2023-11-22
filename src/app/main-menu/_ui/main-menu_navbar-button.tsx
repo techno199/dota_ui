@@ -13,12 +13,6 @@ const MainMenuNavbarButton = (props: MainMenuNavbarButtonProps) => {
   const pathname = usePathname();
   const active = pathname?.includes(href);
 
-  const handleClick = () => {
-    const loop = new Loop('click', [{sourcePath: '/sounds/dota_large_click.mp3'}]);
-    console.log(loop)
-    // mediaCenter.addLoop();
-  }
-
   return (
     <Link
       href={href}

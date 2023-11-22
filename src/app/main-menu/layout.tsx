@@ -34,10 +34,10 @@ const Layout = observer((props: LayoutProps) => {
       </div>
 
       {/* Settings Dialog */}
-      <SettingsDialog
-        open={appState.settingsOpened}
-        onClose={() => appState.settingsOpened = false}
-      />
+      {/*<SettingsDialog*/}
+      {/*  open={appState.settingsOpened}*/}
+      {/*  onClose={() => appState.settingsOpened = false}*/}
+      {/*/>*/}
     </div>
   );
 });
