@@ -14,7 +14,7 @@ export type LayoutProps = {
   children: ReactNode;
 }
 
-const Layout = observer((props: LayoutProps) => {
+const Layout = (props: LayoutProps) => {
   useEffect(() => {
     mediaCenter.addLoop(
       new Loop('bg', AppConfig.mainMenuMusic)
@@ -33,13 +33,13 @@ const Layout = observer((props: LayoutProps) => {
         <MainMenuFooter/>
       </div>
 
-      {/* Settings Dialog */}
+      {/*/!* Settings Dialog *!/*/}
       {/*<SettingsDialog*/}
       {/*  open={appState.settingsOpened}*/}
       {/*  onClose={() => appState.settingsOpened = false}*/}
       {/*/>*/}
     </div>
   );
-});
+};
 
 export default Layout;
