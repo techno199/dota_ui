@@ -7,8 +7,6 @@ import {mediaCenter} from "@/models/MediaCenter/MediaCenter";
 import {Loop} from "@/models/Loop/Loop";
 import {AppConfig} from "@/../app.config";
 import SettingsDialog from "@/app/main-menu/_ui/settings-dialog/settings-dialog";
-import {appState} from "@/app/root.store";
-import {observer} from "mobx-react";
 
 export type LayoutProps = {
   children: ReactNode;
@@ -33,11 +31,7 @@ const Layout = (props: LayoutProps) => {
         <MainMenuFooter/>
       </div>
 
-      {/*/!* Settings Dialog *!/*/}
-      {/*<SettingsDialog*/}
-      {/*  open={appState.settingsOpened}*/}
-      {/*  onClose={() => appState.settingsOpened = false}*/}
-      {/*/>*/}
+      <SettingsDialog />
     </div>
   );
 };
