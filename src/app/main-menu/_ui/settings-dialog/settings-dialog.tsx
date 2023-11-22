@@ -4,10 +4,10 @@ import Dialog, {DialogProps} from "@/ui/Dialog/Dialog";
 import {appState} from "@/app/root.store";
 import {observer} from "mobx-react";
 
-export type SettingsDialogProps = DialogProps;
+export type SettingsDialogProps = Omit<DialogProps, 'open'>;
 
 const SettingsDialog = observer((props: SettingsDialogProps) => {
-  const { classes, open, ...rest } = props;
+  const { classes, ...rest } = props;
 
   return (
     <Dialog
