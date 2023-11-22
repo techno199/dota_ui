@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 import {motion} from "framer-motion";
-import MainMenuMotion from "@/app/main-menu/ui/main-menu_motion";
+import MainMenuMotion from "@/app/main-menu/_ui/main-menu_motion";
 
 export type MainMenuFooterProps = {}
 

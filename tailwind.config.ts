@@ -18,9 +18,11 @@ const config: Config = {
         'col-white': 'rgb(238 238 238)',
         'col-grey': {
           DEFAULT: 'rgb(69 75 86)',
-          dark: 'rgb(15 13 18)',
+          darker: 'rgb(15 13 18)',
+          dark: 'rgb(29 30 33)',
+          500: 'rgb(43 47 47)',
           light: 'rgb(87 104 104)',
-          lighter: 'rgb(204 204 204)',
+          lighter: 'rgb(154 154 171)',
         },
         // blue
         'col-blue': {

@@ -7,6 +7,7 @@ export class AppState {
   launchSequenceLoaded = false;
   // Intro sequence finished or closed
   launchSequenceFinished = false;
+  settingsOpened = false;
 
   constructor() {
     makeAutoObservable(this);
