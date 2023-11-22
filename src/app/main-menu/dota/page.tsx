@@ -9,11 +9,7 @@ import {AppConfig} from "@/../app.config";
 export type PageProps = {}
 
 const Page = (props: PageProps) => {
-  useEffect(() => {
-    mediaCenter.addLoop(
-      new Loop('bg', AppConfig.mainMenuMusic)
-    )
-  }, [])
+
 
   return (
     <div className={'flex '}>

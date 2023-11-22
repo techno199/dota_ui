@@ -8,6 +8,16 @@
   box-shadow: -1px 0px 5px 3px rgba(219,117,21,0.2);
 }
 
+.initial_bubble {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 9999px;
+  background: rgb(255, 205, 69);
+  animation: flutter var(--d) linear forwards;
+  box-shadow: -1px 0px 5px 3px rgba(219,117,21,0.2);
+}
+
 .anim1 {
   top: 50%;
   left: 50%;
@@ -106,6 +116,107 @@
   --p3: translate3d(18px, -7px, 40px);
   --p4: translate3d(21px, -8px, 50px);
   --d: 3.4s;
+}
+
+// Activation bubbles
+.anim11 {
+  top: 50%;
+  left: 50%;
+  --p1: translate3d(7px, 9px, 10px);
+  --p2: translate3d(18px, 11px, 20px);
+  --p3: translate3d(28px, 12px, 40px);
+  --p4: translate3d(38px, 14px, 50px);
+  --d: 3s
+}
+
+.anim12 {
+  top: 65%;
+  left: 65%;
+  --p1: translate3d(7px, 8px, 10px);
+  --p2: translate3d(12px, 23px, 20px);
+  --p3: translate3d(17px, 43px, 40px);
+  --p4: translate3d(22px, 65px, 50px);
+  --d: 4s;
+}
+
+.anim13 {
+  top: 55%;
+  left: 70%;
+  --p1: translate3d(6px, 10px, 10px);
+  --p2: translate3d(11px, 18px, 10px);
+  --p3: translate3d(13px, 26px, 10px);
+  --p4: translate3d(16px, 33px, 10px);
+  --d: 5s;
+}
+
+.anim14 {
+  top: 70%;
+  left: 40%;
+  --p1: translate3d(-6px, 9px, 10px);
+  --p2: translate3d(-14px, 11px, 20px);
+  --p3: translate3d(-24px, 12px, 40px);
+  --p4: translate3d(-34px, 14px, 50px);
+  --d: 3.2s;
+}
+
+.anim15 {
+  top: 60%;
+  left: 20%;
+  --p1: translate3d(-3px, 10px, 10px);
+  --p2: translate3d(-12px, 22px, 20px);
+  --p3: translate3d(-25px, 40px, 40px);
+  --p4: translate3d(-39px, 58px, 50px);
+  --d: 3.7s;
+}
+
+.anim16 {
+  top: 30%;
+  left: 30%;
+  --p1: translate3d(-2px, -10px, 10px);
+  --p2: translate3d(-4px, -12px, 20px);
+  --p3: translate3d(-5px, -13px, 40px);
+  --p4: translate3d(-6px, -15px, 50px);
+  --d: 2.5s;
+}
+
+.anim17 {
+  top: 30%;
+  left: 20%;
+  --p1: translate3d(-5px, -5px, 10px);
+  --p2: translate3d(-15px, -8px, 20px);
+  --p3: translate3d(-25px, -11px, 40px);
+  --p4: translate3d(-35px, -15px, 50px);
+  --d: 3.1s;
+}
+
+.anim18 {
+  top: 20%;
+  left: 40%;
+  --p1: translate3d(-12px, -10px, 10px);
+  --p2: translate3d(-15px, -15px, 20px);
+  --p3: translate3d(-18px, -17px, 40px);
+  --p4: translate3d(-20px, -20px, 50px);
+  --d: 3.2s;
+}
+
+.anim19 {
+  top: 10%;
+  left: 60%;
+  --p1: translate3d(9px, -6px, 10px);
+  --p2: translate3d(12px, -9px, 20px);
+  --p3: translate3d(13px, -10px, 40px);
+  --p4: translate3d(14px, -11px, 50px);
+  --d: 3.6s;
+}
+
+.anim20 {
+  top: 10%;
+  left: 60%;
+  --p1: translate3d(10px, -3px, 10px);
+  --p2: translate3d(15px, -6px, 20px);
+  --p3: translate3d(18px, -7px, 40px);
+  --p4: translate3d(21px, -8px, 50px);
+  --d: 1.9s;
 }
 
 @keyframes flutter {

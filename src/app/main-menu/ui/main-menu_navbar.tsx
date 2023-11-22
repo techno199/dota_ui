@@ -22,27 +22,27 @@ const MainMenuNavbar = (props: MainMenuNavbarProps) => {
         <div className={'w-0.5 grow bg-col-grey'} />
 
         <div className={'flex'}>
-          <Arrow className={'rotate-180'} />
-          <Arrow />
+          <Arrow className={'w-10 h-10 rotate-180'} />
+          <Arrow className={'w-10 h-10'} />
         </div>
       </div>
 
       <MainMenuLogo />
 
       <div className={'flex font-medium'}>
-        <MainMenuNavbarButton>
+        <MainMenuNavbarButton href={'/main-menu/heroes'}>
           Heroes
         </MainMenuNavbarButton>
-        <MainMenuNavbarButton>
+        <MainMenuNavbarButton href={'/main-menu/armory'}>
           Armory
         </MainMenuNavbarButton>
-        <MainMenuNavbarButton>
+        <MainMenuNavbarButton href={'/main-menu/watch'}>
           Watch
         </MainMenuNavbarButton>
-        <MainMenuNavbarButton>
+        <MainMenuNavbarButton href={'/main-menu/learn'}>
           Learn
         </MainMenuNavbarButton>
-        <MainMenuNavbarButton>
+        <MainMenuNavbarButton href={'/main-menu/arcade'}>
           Arcade
         </MainMenuNavbarButton>
       </div>
